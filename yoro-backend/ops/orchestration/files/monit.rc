@@ -1,0 +1,7 @@
+## Monit config to monitor and control services of yoro ##
+
+# Monitor celery beat #
+check process celerybeat with pidfile /home/yoro/yoro_codebase/yoro-backend/yoro/celerybeat.pid
+start program = "/bin/bash /home/yoro/yoro_codebase/yoro-backend/yoro/celerybeat_start.sh"
+as uid 1000 and gid 1000
+stop program = "/bin/bash /home/yoro/yoro_codebase/yoro-backend/yoro/celerybeat_stop.sh"

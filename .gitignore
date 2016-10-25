@@ -1,0 +1,5 @@
+*.pyc
+yoro-backend/yoro/media/
+*sqlite3
+*.log
+*.pid

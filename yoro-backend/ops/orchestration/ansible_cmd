@@ -1,0 +1,36 @@
+* deploy in production
+ansible-playbook -i hosts app.yml --tags deploy --extra-vars "server_environment=production branch=develop"
+
+* deploy in staging
+ansible-playbook -i hosts app.yml --tags deploy --extra-vars "server_environment=staging branch=develop"
+
+* deploy in testing
+ansible-playbook -i hosts app.yml --tags deploy --extra-vars "server_environment=testing branch=develop"
+
+
+Publishing app -->
+Alias : yoro
+Passphrase : aliasav
+
+Path to apk:
+/home/yoro/yoro_codebase/yoro-frontend/yolo/platforms/android/build/outputs/apk
+
+Path to keystore:
+/home/yoro/yoro_codebase/yoro-frontend/yolo/
+
+
+cordova build --release android
+
+keytool -genkey -v -keystore my-release-key.keystore -alias yoro -keyalg RSA -keysize 2048 -validity 10000
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /path-to/my-release-key.keystore /path-to-/android-release-unsigned.apk yoro
+
+zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
+
+* Release on this PC :
+
+cordova build --release android
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /home/aliasav/COD/yoro/yoro-frontend/yolo/my-release-key.keystore /home/aliasav/COD/yoro/yoro-frontend/yolo/platforms/android/build/outputs/apk/android-release-unsigned.apk yoro
+
+zipalign -v 4 /home/aliasav/COD/yoro/yoro-frontend/yolo/platforms/android/build/outputs/apk/android-release-unsigned.apk /home/aliasav/COD/yoro/yoro-frontend/yolo/platforms/android/build/outputs/apk/yoro-release.apk

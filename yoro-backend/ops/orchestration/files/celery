@@ -1,0 +1,5 @@
+#!/bin/bash
+# myscript     init script to manage celery 
+# Add this file to /etc/init.d to make it a service
+cd /home/yoro/yoro_codebase/yoro-backend/yoro
+python celery_start_stop.py $1

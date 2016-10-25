@@ -1,0 +1,16 @@
+# variables used across the playbook
+
+repository: git@bitbucket.org:healthondelivery/yoro.git
+
+deploy_dir: /home/yoro/yoro_codebase/
+
+backend_dir: /home/yoro/yoro_codebase/yoro-backend/
+
+virtualenv_dir: /home/yoro/virtualenvs/yoro/
+
+orchestration_dir: /home/yoro/yoro_codebase/yoro-backend/ops/orchestration/
+
+app_js_dir: /home/yoro/yoro_codebase/yoro-frontend/yolo/www/js/
+
+media_folders:
+    - videos

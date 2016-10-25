@@ -1,0 +1,38 @@
+<ion-view view-title="YORO" hide-nav-bar="true" class="splash-page">
+  <ion-content scroll="false">
+
+    <div class="padding logo">
+      <h1>YORO</h1>
+    </div>
+
+
+    <div class="login-form">
+      <div class="card">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" ng-model="form.username" placeholder="Enter your {{ form.signingUp ? 'desired' : 'yoro' }} username">
+          </label>
+        </div>
+        <div class="list">
+          <label class="item item-input">
+            <input type="password" ng-model="form.passkey" placeholder="Enter your {{ form.signingUp ? 'desired' : 'yoro' }} passkey">
+          </label>
+        </div>
+      </div>
+
+      <div class="padding-left padding-right">
+        <button class="button button-block action-button" ng-class="{'button-positive': !form.signingUp, 'button-balanced': form.signingUp}" ng-click="submitForm(form.username, form.passkey, form.signingUp)">
+          {{ form.signingUp ? 'Sign up' : 'Sign in' }}
+        </button>
+      </div>
+    </div>
+
+
+    <div class="padding signup-opt" >
+      <button class="button button-block action-button" ng-class="{'button-positive': !form.signingUp, 'button-balanced': form.signingUp}" ng-click="form.signingUp = !form.signingUp">
+      {{ form.signingUp ? 'Have an account? Sign in!' : 'Need an account? Sign up!' }}
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,36 @@
+<ion-view view-title="YORO!" style="padding:1%;">
+  <ion-content class="padding">
+    <div class="list card">
+      <center>
+      <div class="item item-divider">You'll Only Record Once!</div>
+      <div class="item item-body">
+        <div class="row">
+          <div class="col col-33"><b>1 video !</b></div>
+          <div class="col col-34"><b>1 chance !</b></div>
+          <div class="col col-33"><b>Everyday !</b></div>
+        </div>
+      </div>
+      <br><br>
+      <div class="item item-divider" style="margin-top:4%;">It's {{ date.day }}, the {{ date.date }} of {{ date.month }}</div>
+      <div class="item item-body" ng-show="can_upload_flag">
+        <div ng-show="stateFlag === 0">
+          <button class="button button-dark" ng-click="captureVideo();"> YORO! </button>
+        </div>
+        <div ng-show="stateFlag === 1">
+          <p> File uploaded successfully </p>
+        </div>
+        <div ng-show="stateFlag === 3">
+          <p> Uploading In Progress! </p>
+          <img ng-src="img/loading.gif" />
+        </div>
+      </div>
+      <div class="item item-body" ng-hide="can_upload_flag">
+        <center>
+        <br>
+        You have uploaded your Yoro for today! <br><br> Do Come back tomorrow!
+        </center>
+      </div>
+    </center>
+    </div>
+  </ion-content>
+</ion-view>

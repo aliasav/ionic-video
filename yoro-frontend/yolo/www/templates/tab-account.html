@@ -1,0 +1,58 @@
+<ion-view view-title="Account">
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+  <ion-content>
+    <ion-list>
+    	<ion-item>
+
+    		<div ng-repeat="video in video_data" style="margin-bottom:5%;" ng-show="displayVideosFlag">
+		        <ion-item class="item-stable" ng-click="toggleGroup(video)" ng-class="{active: isGroupShown(video)}">
+		            <i class="icon" ng-class="isGroupShown(video) ? 'ion-minus' : 'ion-plus'"></i>
+		          &nbsp;
+		          {{ video.created_at }}
+		        </ion-item>
+		        <ion-item class="item-accordion" ng-show="isGroupShown(video)">
+	                <a class="item item-avatar item-body row" ng-click="viewVideo(video)" ng-hide="video.viewVideoFlag">                       
+	                <div class="col-50">
+	                    <img ng-src="img/ionic.png">
+	                </div>
+	                <div class="col-50" style="margin-top:15%;">
+	                    View This Video!
+	                </div>
+	                </a>
+	                <ion-item ng-show="video.viewVideoFlag">
+		                <div class="video-container">
+		                    <iframe src="{{ video.available_path }}" frameborder="0" width="560" height="315" autoplay="false" autostart="0" allowfullscreen="yes"></iframe>
+		                </div>
+		            </ion-item>            		            		       
+	                <!--{{ video.local_path }}-->
+		        </ion-item>
+	      	</div>
+
+	      	<div style="margin-bottom:5%;" ng-hide="displayVideosFlag">
+		        <ion-item class="item-stable">
+		        <center>
+		          You haven't uploaded any Yoros yet! <br>Get started now!
+		        </center>
+		        </ion-item>
+	      	</div>
+
+		</ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
+ 

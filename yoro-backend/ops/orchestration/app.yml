@@ -1,0 +1,10 @@
+# Deploys yoro codebase on server
+
+- name : Deploy codebase on yoro server
+  hosts: "yoro_server"
+  user: root
+  sudo: yes
+  sudo_user: yoro
+  gather_facts: false
+  roles:
+    - yoro_deploy
